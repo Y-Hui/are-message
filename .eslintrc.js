@@ -3,8 +3,9 @@ module.exports = {
     browser: true,
     node: true,
   },
-  extends: ['plugin:react/recommended', 'airbnb', 'airbnb/hooks', 'prettier'],
   parser: '@typescript-eslint/parser',
+  plugins: ['react', '@typescript-eslint', 'prettier'],
+  extends: ['plugin:react/recommended', 'airbnb', 'airbnb/hooks', 'prettier'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -12,7 +13,6 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     'react/react-in-jsx-scope': 0,
     'react/jsx-filename-extension': [
