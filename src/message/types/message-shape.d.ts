@@ -4,9 +4,9 @@ import { Omit } from './types'
 export type MessageId = React.Key
 
 /**
- * 单条 message 数据
+ * message props
  */
-export type MessageShape = {
+export type MessageOptions = {
   /**
    * 唯一标识符
    */
@@ -20,13 +20,22 @@ export type MessageShape = {
    */
   duration?: number
   /**
-   * @private clear timeoutId
-   * 内部使用，记录定时器 id
+   * 关闭时触发的回调函数
    */
-  timerId?: number | null
+  onClose?: () => void
 }
 
 /**
- * message options
+ * 单条 message 数据
  */
-export type MessageOptions = Omit<MessageShape, 'timerId'>
+export type MessageShape = Omit<MessageOptions, 'id'> & {
+  /**
+   * 唯一标识符
+   */
+  id: MessageId
+  /**
+   * @private clear timeoutId
+   * 内部使用，记录定时器 id
+   */
+  timerId?: number
+}

@@ -1,8 +1,9 @@
-import React, { useCallback, useRef } from 'react'
+import { useCallback, useRef } from 'react'
+import { MessageId } from '../types/message-shape'
 import { isTruthy } from '../types/types'
 
-function genId(value?: React.Key) {
-  if (isTruthy<React.Key>(value)) {
+function genId(value?: MessageId) {
+  if (isTruthy<MessageId>(value)) {
     return value
   }
   return null
@@ -11,7 +12,7 @@ function genId(value?: React.Key) {
 export default function useGenId() {
   const index = useRef(0)
 
-  const gen = useCallback((value?: React.Key) => {
+  const gen = useCallback((value?: MessageId) => {
     index.current += 1
     const id = genId(value) || index.current
     return id

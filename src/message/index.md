@@ -1,22 +1,9 @@
 ## Message
 
-Demo:
+### 基本用法
 
-```tsx
-import React from 'react'
-import { message } from 'are-message'
+<code src="./example/basic.tsx" />
 
-const MessageDemo = () => {
-  const showMessage = () => {
-    message.open({ content: 'message content.' })
-  }
+### Promise 链式调用
 
-  return (
-    <>
-      <button onClick={showMessage}>Show message.</button>
-    </>
-  )
-}
-
-export default MessageDemo
-```
+<code src="./example/promise.tsx" />

@@ -4,24 +4,15 @@ import React, {
   forwardRef,
   useCallback,
 } from 'react'
-import Message from '../message'
 import useGenId from '../hooks/use-id'
+import timeout from '../helper/timeout'
 import { DURATION } from '../constant'
-import { MessageRef } from '../types/message-ref'
+import { MessageCloseFunc, MessageRef } from '../types/message-ref'
 import reducer, { addAction, removeAction, clearAction } from './reducer'
+import Message from '../message'
 
 import './index.less'
 import { isTruthy } from '../types/types'
-
-function handlerTimeout(callback: (timerId: number) => void, duration: number) {
-  return new Promise((resolve) => {
-    const timer = window.setTimeout(() => {
-      resolve(timer)
-      clearTimeout(timer)
-    }, duration)
-    callback(timer)
-  })
-}
 
 const MessageContainer = forwardRef<MessageRef>((props, ref) => {
   const [message, dispatch] = useReducer(reducer, [])
@@ -38,19 +29,39 @@ const MessageContainer = forwardRef<MessageRef>((props, ref) => {
 
   const addMessage: MessageRef['add'] = useCallback(
     (params) => {
-      const { id: rawId, duration: rawDuration } = params
+      const { id: rawId, duration: rawDuration, onClose: close } = params
       const duration = isTruthy<number>(rawDuration) ? rawDuration : DURATION
       const id = genId(rawId)
-      const add = (timerId: null | number = null) => {
-        dispatch(addAction({ ...params, duration, id, timerId }))
+
+      const result: MessageCloseFunc = () => removeMessage(id)
+
+      const add = (timerId?: number) => {
+        return new Promise((resolve) => {
+          const item = addAction({
+            ...params,
+            duration,
+            id,
+            timerId,
+            onClose: () => {
+              window.clearTimeout(timerId)
+              close?.()
+              resolve(undefined)
+            },
+          })
+          dispatch(item)
+        })
       }
+
       if (duration === 0) {
-        add()
-        return
+        const res = add()
+        result.then = (r, e) => res.then(r, e)
+      } else {
+        const timerId = timeout(() => removeMessage(id), duration)
+        const res = add(timerId)
+        result.then = (r, e) => res.then(r, e)
       }
-      handlerTimeout(add, duration).then(() => {
-        removeMessage(id)
-      })
+
+      return result
     },
     [genId, removeMessage],
   )
@@ -63,9 +74,16 @@ const MessageContainer = forwardRef<MessageRef>((props, ref) => {
 
   return (
     <div className="message-container">
-      {message.map((item) => (
-        <Message key={item.id}>{item.content}</Message>
-      ))}
+      {message.map((item) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { id, content, timerId, ...otherProps } = item
+
+        return (
+          <Message key={id} {...otherProps}>
+            {content}
+          </Message>
+        )
+      })}
     </div>
   )
 })

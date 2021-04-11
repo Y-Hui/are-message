@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import MessageContainer from '../container'
 import createContainer from '../helper/create-container'
 import { MessageRef } from '../types/message-ref'
-import { MessageId, MessageOptions, MessageShape } from '../types/message-shape'
+import { MessageId, MessageOptions } from '../types/message-shape'
 
 let instance: MessageRef
 
@@ -24,19 +24,18 @@ function newInstance(callback: (ref: MessageRef) => void) {
   )
 }
 
-function showMessage(options: MessageShape) {
+function showMessage(options: MessageOptions) {
   return instance?.add(options)
 }
 
 function message(options: MessageOptions) {
   if (instance) {
-    showMessage(options)
-    return
+    return showMessage(options)
   }
   newInstance((value) => {
     instance = value
-    showMessage(options)
   })
+  return showMessage(options)
 }
 
 const api = {

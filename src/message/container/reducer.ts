@@ -1,11 +1,11 @@
-import React, { Reducer } from 'react'
-import { MessageShape } from '../types/message-shape'
+import { Reducer } from 'react'
+import { MessageId, MessageShape } from '../types/message-shape'
 
-export function addAction(value: Required<MessageShape>) {
+export function addAction(value: MessageShape) {
   return { type: 'add', payload: value } as const
 }
 
-export function removeAction(value: React.Key) {
+export function removeAction(value: MessageId) {
   return { type: 'remove', id: value } as const
 }
 
@@ -18,11 +18,8 @@ type MessageActions =
   | ReturnType<typeof removeAction>
   | ReturnType<typeof clearAction>
 
-const reducer: Reducer<Required<MessageShape>[], MessageActions> = (
-  state,
-  action,
-) => {
-  const filterById = (id?: React.Key) => {
+const reducer: Reducer<MessageShape[], MessageActions> = (state, action) => {
+  const filterById = (id?: MessageId) => {
     return state?.filter((item) => item.id !== id)
   }
 
