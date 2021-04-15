@@ -1,11 +1,11 @@
 import { MessageOptions, MessageId } from './message-shape'
 
 export interface MessageCloseFunc extends PromiseLike<unknown> {
-  (): void
+  (): () => void
 }
 
 export interface MessageRef {
-  add: (params: MessageOptions) => MessageCloseFunc
+  add: (params: MessageOptions) => () => void
   remove: (id: MessageId) => void
   clear: () => void
 }

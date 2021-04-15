@@ -1,4 +1,5 @@
 import React from 'react'
+import { MessageProps } from '../message/prop-types'
 import { Omit } from './types'
 
 export type MessageId = React.Key
@@ -6,7 +7,7 @@ export type MessageId = React.Key
 /**
  * message props
  */
-export type MessageOptions = {
+export interface MessageOptions extends MessageProps {
   /**
    * 唯一标识符
    */
@@ -19,10 +20,6 @@ export type MessageOptions = {
    * 显示时长
    */
   duration?: number
-  /**
-   * 关闭时触发的回调函数
-   */
-  onClose?: () => void
 }
 
 /**

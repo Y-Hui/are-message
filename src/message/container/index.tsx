@@ -4,24 +4,51 @@ import React, {
   forwardRef,
   useCallback,
 } from 'react'
+import FlipMove from 'react-flip-move'
 import useGenId from '../hooks/use-id'
 import timeout from '../helper/timeout'
 import { DURATION } from '../constant'
-import { MessageCloseFunc, MessageRef } from '../types/message-ref'
+import { MessageRef } from '../types/message-ref'
 import reducer, { addAction, removeAction, clearAction } from './reducer'
 import Message from '../message'
 
 import './index.less'
 import { isTruthy } from '../types/types'
+import { MessageId } from '../types/message-shape'
+
+const enterAnimation = {
+  from: { transform: 'translate3d(0, -30px, 0)', opacity: '0' },
+  to: { transform: 'translate3d(0, 0, 0)', opacity: '1' },
+}
+
+const leaveAnimation = {
+  from: { transform: 'translate3d(0, 0, 0)', opacity: '1' },
+  to: { transform: 'translate3d(0, -30px, 0)', opacity: '0' },
+}
 
 const MessageContainer = forwardRef<MessageRef>((props, ref) => {
   const [message, dispatch] = useReducer(reducer, [])
 
   const genId = useGenId()
 
+  const beforeUpdate = useCallback(
+    (id: MessageId) => {
+      const index = message.findIndex((item) => item.id === id)
+      if (index > -1) {
+        /** 更新 Message 时，清理原来的定时器 */
+        const { timerId } = message[index]
+        clearTimeout(timerId)
+      }
+    },
+    [message],
+  )
+
   const clearMessage = useCallback(() => {
+    message.forEach((item) => {
+      clearTimeout(item.timerId)
+    })
     dispatch(clearAction())
-  }, [])
+  }, [message])
 
   const removeMessage: MessageRef['remove'] = useCallback((id) => {
     dispatch(removeAction(id))
@@ -33,37 +60,24 @@ const MessageContainer = forwardRef<MessageRef>((props, ref) => {
       const duration = isTruthy<number>(rawDuration) ? rawDuration : DURATION
       const id = genId(rawId)
 
-      const result: MessageCloseFunc = () => removeMessage(id)
-
-      const add = (timerId?: number) => {
-        return new Promise((resolve) => {
-          const item = addAction({
-            ...params,
-            duration,
-            id,
-            timerId,
-            onClose: () => {
-              window.clearTimeout(timerId)
-              close?.()
-              resolve(undefined)
-            },
-          })
-          dispatch(item)
-        })
-      }
-
-      if (duration === 0) {
-        const res = add()
-        result.then = (r, e) => res.then(r, e)
-      } else {
-        const timerId = timeout(() => removeMessage(id), duration)
-        const res = add(timerId)
-        result.then = (r, e) => res.then(r, e)
-      }
-
+      beforeUpdate(id)
+      const result = () => removeMessage(id)
+      const timerId = duration === 0 ? undefined : timeout(result, duration)
+      dispatch(
+        addAction({
+          ...params,
+          duration,
+          id,
+          timerId,
+          onClose: () => {
+            window.clearTimeout(timerId)
+            close?.()
+          },
+        }),
+      )
       return result
     },
-    [genId, removeMessage],
+    [genId, removeMessage, beforeUpdate],
   )
 
   useImperativeHandle(ref, () => ({
@@ -74,16 +88,23 @@ const MessageContainer = forwardRef<MessageRef>((props, ref) => {
 
   return (
     <div className="message-container">
-      {message.map((item) => {
-        // eslint-disable-next-line @typescript-eslint/no-unused-vars
-        const { id, content, timerId, ...otherProps } = item
-
-        return (
-          <Message key={id} {...otherProps}>
-            {content}
-          </Message>
-        )
-      })}
+      <FlipMove
+        enterAnimation={enterAnimation}
+        leaveAnimation={leaveAnimation}
+        duration={200}
+        staggerDelayBy={20}
+        typeName={null}
+      >
+        {message.map((item) => {
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          const { id, content, timerId, duration, ...otherProps } = item
+          return (
+            <Message key={id} {...otherProps}>
+              {content}
+            </Message>
+          )
+        })}
+      </FlipMove>
     </div>
   )
 })

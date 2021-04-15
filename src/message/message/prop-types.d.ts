@@ -10,4 +10,5 @@ export type MessageProps = {
    * 关闭时触发的回调函数
    */
   onClose?: () => void
-} & Base
+  holder?: () => HTMLElement
+}

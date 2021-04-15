@@ -1,15 +1,21 @@
 export type TargetContainer = () => HTMLElement
 
+let targetDOM: HTMLElement
+
 /**
  * 创建渲染容器
  */
 export default function createContainer(target?: TargetContainer) {
+  if (targetDOM) {
+    return targetDOM
+  }
   const div = document.createElement('div')
   if (target) {
-    const root = target()
-    root.appendChild(div)
+    targetDOM = target()
+    targetDOM.appendChild(div)
   } else {
-    document.body.appendChild(div)
+    targetDOM = div
+    document.body.appendChild(targetDOM)
   }
-  return div
+  return targetDOM
 }
