@@ -1,7 +1,7 @@
 import { defineConfig } from 'dumi'
 
 const ENV = process.env.NODE_ENV
-const prefix = '/are-message/.docs/'
+const prefix = '/are-message/docs-dist/'
 
 export default defineConfig({
   title: 'are-message',
@@ -13,7 +13,8 @@ export default defineConfig({
     ENV === 'production'
       ? `${prefix}/images/are-visual.svg`
       : '/images/are-visual.svg',
-  outputPath: '.doc',
+  outputPath: 'docs-dist',
+  dynamicImport: ENV === 'production' ? {} : false,
   styles: [
     `
       body {
