@@ -16,12 +16,12 @@
       a.p +
       '' +
       ({
-        0: 'vendors~docs__documentation__index.md~docs__documentation__index.zh-CN.md~docs__index.md~docs__index~6e8dcb23',
+        0: 'vendors~README.md~docs__documentation__index.md~docs__documentation__index.zh-CN.md~docs__index.zh-C~b0514832',
         1: 'vendors~docs__documentation__index.md~docs__documentation__index.zh-CN.md~dumi_demos',
-        2: 'demos_no_comp',
-        3: 'docs__documentation__index.md',
-        4: 'docs__documentation__index.zh-CN.md',
-        5: 'docs__index.md',
+        2: 'README.md',
+        3: 'demos_no_comp',
+        4: 'docs__documentation__index.md',
+        5: 'docs__documentation__index.zh-CN.md',
         6: 'docs__index.zh-CN.md',
         7: 'dumi_demos',
         9: 'vendors~demos_no_comp',
@@ -38,7 +38,7 @@
   }
   ;(a.e = function (e) {
     var t = [],
-      n = { 1: 1, 2: 1, 10: 1 }
+      n = { 1: 1, 3: 1, 10: 1 }
     r[e]
       ? t.push(r[e])
       : 0 !== r[e] &&
@@ -48,12 +48,12 @@
             for (
               var o =
                   ({
-                    0: 'vendors~docs__documentation__index.md~docs__documentation__index.zh-CN.md~docs__index.md~docs__index~6e8dcb23',
+                    0: 'vendors~README.md~docs__documentation__index.md~docs__documentation__index.zh-CN.md~docs__index.zh-C~b0514832',
                     1: 'vendors~docs__documentation__index.md~docs__documentation__index.zh-CN.md~dumi_demos',
-                    2: 'demos_no_comp',
-                    3: 'docs__documentation__index.md',
-                    4: 'docs__documentation__index.zh-CN.md',
-                    5: 'docs__index.md',
+                    2: 'README.md',
+                    3: 'demos_no_comp',
+                    4: 'docs__documentation__index.md',
+                    5: 'docs__documentation__index.zh-CN.md',
                     6: 'docs__index.zh-CN.md',
                     7: 'dumi_demos',
                     9: 'vendors~demos_no_comp',
@@ -12874,17 +12874,10 @@
               path: '/',
               component: Object(i['dynamic'])({
                 loader: () =>
-                  Promise.all([n.e(0), n.e(5)]).then(n.bind(null, 'F+kV')),
+                  Promise.all([n.e(0), n.e(2)]).then(n.bind(null, 'gql7')),
               }),
               exact: !0,
-              meta: {
-                filePath: 'docs/index.md',
-                updatedTime: 1618660805e3,
-                title: 'are-message',
-                slugs: [
-                  { depth: 1, value: 'are-message', heading: 'are-message' },
-                ],
-              },
+              meta: { locale: 'en-US', title: 'are-message', order: null },
               title: 'are-message',
             },
             {
@@ -12899,6 +12892,7 @@
                 updatedTime: 1618660805e3,
                 slugs: [
                   { depth: 2, value: 'are-message', heading: 'are-message' },
+                  { depth: 2, value: '\u6587\u6863', heading: '\u6587\u6863' },
                 ],
                 title: 'are-message',
                 locale: 'zh-CN',
@@ -12909,7 +12903,7 @@
               path: '/documentation',
               component: Object(i['dynamic'])({
                 loader: () =>
-                  Promise.all([n.e(0), n.e(1), n.e(3)]).then(
+                  Promise.all([n.e(0), n.e(1), n.e(4)]).then(
                     n.bind(null, 'BSo1'),
                   ),
               }),
@@ -12954,7 +12948,7 @@
               path: '/zh-CN/documentation',
               component: Object(i['dynamic'])({
                 loader: () =>
-                  Promise.all([n.e(0), n.e(1), n.e(4)]).then(
+                  Promise.all([n.e(0), n.e(1), n.e(5)]).then(
                     n.bind(null, 'Afmh'),
                   ),
               }),

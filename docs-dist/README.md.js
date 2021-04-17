@@ -1,5 +1,5 @@
 ;(window['webpackJsonp'] = window['webpackJsonp'] || []).push([
-  [5],
+  [2],
   {
     '9kvl': function (e, n, t) {
       'use strict'
@@ -7,35 +7,17 @@
       t.d(n, 'a', function () {
         return s['b']
       })
-      var r = t('bCY9')
+      var a = t('bCY9')
       t.d(n, 'b', function () {
-        return r['a']
+        return a['a']
       })
-    },
-    'F+kV': function (e, n, t) {
-      'use strict'
-      t.r(n)
-      var s = t('q1tI'),
-        r = t.n(s)
-      t('dEAq'), t('Rsk4')
-      n['default'] = function () {
-        return r.a.createElement(
-          r.a.Fragment,
-          null,
-          r.a.createElement(
-            'div',
-            { className: 'markdown' },
-            r.a.createElement(r.a.Fragment, { children: t('gql7').default() }),
-          ),
-        )
-      }
     },
     Rsk4: function (e, n, t) {
       'use strict'
       t.r(n)
       var s = t('9og8'),
-        r = t('WmNS'),
-        a = t.n(r),
+        a = t('WmNS'),
+        r = t.n(a),
         o = t('LtsZ'),
         i =
           "import React from 'react'\nimport { message } from 'are-message'\nimport '../../assets/index.less'\n\nconst BasicDemo = () => {\n  const showMessage = () => {\n    message.open('Hello Are Vision.')\n  }\n\n  return <button onClick={showMessage}>Show Message</button>\n}\n\nexport default BasicDemo",
@@ -56,14 +38,14 @@
           component: Object(o['dynamic'])({
             loader: (function () {
               var e = Object(s['a'])(
-                a.a.mark(function e() {
-                  return a.a.wrap(function (e) {
+                r.a.mark(function e() {
+                  return r.a.wrap(function (e) {
                     while (1)
                       switch ((e.prev = e.next)) {
                         case 0:
                           return (
                             (e.next = 2),
-                            Promise.all([t.e(9), t.e(2)]).then(
+                            Promise.all([t.e(9), t.e(3)]).then(
                               t.bind(null, '+ufn'),
                             )
                           )
@@ -102,14 +84,14 @@
           component: Object(o['dynamic'])({
             loader: (function () {
               var e = Object(s['a'])(
-                a.a.mark(function e() {
-                  return a.a.wrap(function (e) {
+                r.a.mark(function e() {
+                  return r.a.wrap(function (e) {
                     while (1)
                       switch ((e.prev = e.next)) {
                         case 0:
                           return (
                             (e.next = 2),
-                            Promise.all([t.e(9), t.e(2)]).then(
+                            Promise.all([t.e(9), t.e(3)]).then(
                               t.bind(null, 'YoEN'),
                             )
                           )
@@ -148,14 +130,14 @@
           component: Object(o['dynamic'])({
             loader: (function () {
               var e = Object(s['a'])(
-                a.a.mark(function e() {
-                  return a.a.wrap(function (e) {
+                r.a.mark(function e() {
+                  return r.a.wrap(function (e) {
                     while (1)
                       switch ((e.prev = e.next)) {
                         case 0:
                           return (
                             (e.next = 2),
-                            Promise.all([t.e(9), t.e(2)]).then(
+                            Promise.all([t.e(9), t.e(3)]).then(
                               t.bind(null, 'WsYC'),
                             )
                           )
@@ -194,14 +176,14 @@
           component: Object(o['dynamic'])({
             loader: (function () {
               var e = Object(s['a'])(
-                a.a.mark(function e() {
-                  return a.a.wrap(function (e) {
+                r.a.mark(function e() {
+                  return r.a.wrap(function (e) {
                     while (1)
                       switch ((e.prev = e.next)) {
                         case 0:
                           return (
                             (e.next = 2),
-                            Promise.all([t.e(9), t.e(2)]).then(
+                            Promise.all([t.e(9), t.e(3)]).then(
                               t.bind(null, '52fG'),
                             )
                           )
@@ -240,14 +222,14 @@
           component: Object(o['dynamic'])({
             loader: (function () {
               var e = Object(s['a'])(
-                a.a.mark(function e() {
-                  return a.a.wrap(function (e) {
+                r.a.mark(function e() {
+                  return r.a.wrap(function (e) {
                     while (1)
                       switch ((e.prev = e.next)) {
                         case 0:
                           return (
                             (e.next = 2),
-                            Promise.all([t.e(9), t.e(2)]).then(
+                            Promise.all([t.e(9), t.e(3)]).then(
                               t.bind(null, 'btNl'),
                             )
                           )
@@ -286,14 +268,14 @@
           component: Object(o['dynamic'])({
             loader: (function () {
               var e = Object(s['a'])(
-                a.a.mark(function e() {
-                  return a.a.wrap(function (e) {
+                r.a.mark(function e() {
+                  return r.a.wrap(function (e) {
                     while (1)
                       switch ((e.prev = e.next)) {
                         case 0:
                           return (
                             (e.next = 2),
-                            Promise.all([t.e(9), t.e(2)]).then(
+                            Promise.all([t.e(9), t.e(3)]).then(
                               t.bind(null, 'w60M'),
                             )
                           )
@@ -334,32 +316,32 @@
       'use strict'
       t.r(n)
       var s = t('q1tI'),
-        r = t.n(s),
-        a = t('dEAq')
+        a = t.n(s),
+        r = t('dEAq')
       t('Rsk4')
       n['default'] = function () {
-        return r.a.createElement(
-          r.a.Fragment,
+        return a.a.createElement(
+          a.a.Fragment,
           null,
-          r.a.createElement(
+          a.a.createElement(
             'div',
             { className: 'markdown' },
-            r.a.createElement(
+            a.a.createElement(
               'h1',
               { id: 'are-message' },
-              r.a.createElement(
-                a['AnchorLink'],
+              a.a.createElement(
+                r['AnchorLink'],
                 { to: '#are-message', 'aria-hidden': 'true', tabIndex: -1 },
-                r.a.createElement('span', { className: 'icon icon-link' }),
+                a.a.createElement('span', { className: 'icon icon-link' }),
               ),
               'are-message',
             ),
-            r.a.createElement(
+            a.a.createElement(
               'p',
               null,
               'This is a React global notification message component. It is a standalone implementation of the ',
-              r.a.createElement(
-                a['Link'],
+              a.a.createElement(
+                r['Link'],
                 {
                   to:
                     'https://y-hui.github.io/are-visual/docs-dist/components/message',
@@ -367,32 +349,58 @@
                 'are-visual message',
               ),
               ' component.',
-              r.a.createElement('br', null),
+              a.a.createElement('br', null),
             ),
-            r.a.createElement(
+            a.a.createElement(
               'p',
               null,
               'Refer to some excellent open source projects (',
-              r.a.createElement(
-                a['Link'],
+              a.a.createElement(
+                r['Link'],
                 { to: 'https://ant.design/' },
                 'antd',
               ),
               ')',
             ),
-            r.a.createElement(
+            a.a.createElement(
+              'h2',
+              { id: 'documentation' },
+              a.a.createElement(
+                r['AnchorLink'],
+                { to: '#documentation', 'aria-hidden': 'true', tabIndex: -1 },
+                a.a.createElement('span', { className: 'icon icon-link' }),
+              ),
+              'Documentation',
+            ),
+            a.a.createElement(
+              'p',
+              null,
+              a.a.createElement(
+                r['Link'],
+                { to: 'https://y-hui.github.io/are-message/docs-dist/' },
+                'English Doc',
+              ),
+              a.a.createElement('br', null),
+              a.a.createElement(
+                r['Link'],
+                { to: 'https://y-hui.github.io/are-message/docs-dist/zh-CN/' },
+                '\u4e2d\u6587\u6587\u6863',
+              ),
+              a.a.createElement('br', null),
+            ),
+            a.a.createElement(
               'p',
               null,
               'You can call and spell ',
-              r.a.createElement('code', null, 'are-message'),
+              a.a.createElement('code', null, 'are-message'),
               ' like this.',
             ),
-            r.a.createElement(
+            a.a.createElement(
               'ul',
               null,
-              r.a.createElement('li', null, 'are-message'),
+              a.a.createElement('li', null, 'are-message'),
             ),
-            r.a.createElement(
+            a.a.createElement(
               'p',
               null,
               'ps: I am not sure this is a good open source project, but i am using it.',

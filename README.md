@@ -4,6 +4,11 @@ This is a React global notification message component. It is a standalone implem
 
 Refer to some excellent open source projects ([antd](https://ant.design/))
 
+## Documentation
+
+[English Doc](https://y-hui.github.io/are-message/docs-dist/)<br/>
+[中文文档](https://y-hui.github.io/are-message/docs-dist/zh-CN/)<br/>
+
 You can call and spell `are-message` like this.
 
 - are-message
