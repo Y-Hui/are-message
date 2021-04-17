@@ -180,7 +180,7 @@
     (a.o = function (e, t) {
       return Object.prototype.hasOwnProperty.call(e, t)
     }),
-    (a.p = '/'),
+    (a.p = '/are-message/docs-dist/'),
     (a.oe = function (e) {
       throw (console.error(e), e)
     })
