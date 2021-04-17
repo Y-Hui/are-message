@@ -1,9 +1,27 @@
-import { defineConfig } from 'dumi';
+import { defineConfig } from 'dumi'
+
+const ENV = process.env.NODE_ENV
+const prefix = '/are-message/.docs/'
 
 export default defineConfig({
   title: 'are-message',
-  favicon: 'https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png',
-  logo: 'https://user-images.githubusercontent.com/9554297/83762004-a0761b00-a6a9-11ea-83b4-9c8ff721d4b8.png',
-  outputPath: 'docs-dist',
-  // more config: https://d.umijs.org/config
-});
+  favicon:
+    ENV === 'production'
+      ? `${prefix}/images/favicon.ico`
+      : '/images/favicon.ico',
+  logo:
+    ENV === 'production'
+      ? `${prefix}/images/are-visual.svg`
+      : '/images/are-visual.svg',
+  outputPath: '.doc',
+  styles: [
+    `
+      body {
+        font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue","Helvetica","Arial","PingFang SC","Hiragino Sans GB","Heiti SC","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif !important;
+      }
+      .are-message {
+        z-index: 1000;
+      }
+    `,
+  ],
+})
