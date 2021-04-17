@@ -9,10 +9,12 @@
     "sourceMap": true,
     "baseUrl": "./",
     "strict": true,
+    "declaration": true,
+    "skipLibCheck": true,
     "paths": {
       "@/*": ["src/*"],
       "@@/*": ["src/.umi/*"],
-      "are-message": ["src/index"]
+      "are-message": ["src/index.ts"]
     },
     "allowSyntheticDefaultImports": true
   },
@@ -24,7 +26,6 @@
     "typings",
     "**/__test__",
     "test",
-    "docs",
     "tests"
   ]
 }

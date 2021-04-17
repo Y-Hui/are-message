@@ -1,3 +1,5 @@
+import { getPrefixCls } from '../config'
+
 export type TargetContainer = () => HTMLElement
 
 let targetDOM: HTMLElement
@@ -10,6 +12,7 @@ export default function createContainer(target?: TargetContainer) {
     return targetDOM
   }
   const div = document.createElement('div')
+  div.className = getPrefixCls()
   if (target) {
     targetDOM = target()
     targetDOM.appendChild(div)

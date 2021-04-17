@@ -1,0 +1,31 @@
+@AreMessageClassName: are-message;
+
+.@{AreMessageClassName} {
+  position: fixed;
+  top: 20px;
+  right: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+
+  &-item-wrap {
+    position: relative;
+    padding: 8px;
+    text-align: center;
+  }
+
+  &-item {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 8px 24px;
+    border: 1px solid #eaeaea;
+    background-color: #fff;
+    font-size: 14px;
+    line-height: 1.5715;
+    pointer-events: all;
+    border-radius: 999px;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
+  }
+}

@@ -1,4 +1,18 @@
-.message {
+.are-message {
+  position: fixed;
+  top: 20px;
+  right: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  pointer-events: none;
+}
+.are-message-item-wrap {
+  position: relative;
+  padding: 8px;
+  text-align: center;
+}
+.are-message-item {
   position: relative;
   display: inline-block;
   box-sizing: border-box;
@@ -10,10 +24,4 @@
   pointer-events: all;
   border-radius: 999px;
   box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.06);
-}
-
-.message-wrap {
-  position: relative;
-  padding: 8px;
-  text-align: center;
 }

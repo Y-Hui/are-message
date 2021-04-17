@@ -1,2 +1,5 @@
+---
+title: are-message
+---
 
-## Hello are-message!
+<embed src="../README.md"></embed>

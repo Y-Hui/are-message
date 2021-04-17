@@ -7,12 +7,11 @@ import React, {
 import FlipMove from 'react-flip-move'
 import useGenId from '../hooks/use-id'
 import timeout from '../helper/timeout'
-import { DURATION } from '../constant'
+import { getDuration, getPrefixCls } from '../config'
 import { MessageRef } from '../types/message-ref'
 import reducer, { addAction, removeAction, clearAction } from './reducer'
 import Message from '../message'
 
-import './index.less'
 import { isTruthy } from '../types/types'
 import { MessageId } from '../types/message-shape'
 
@@ -57,7 +56,9 @@ const MessageContainer = forwardRef<MessageRef>((props, ref) => {
   const addMessage: MessageRef['add'] = useCallback(
     (params) => {
       const { id: rawId, duration: rawDuration, onClose: close } = params
-      const duration = isTruthy<number>(rawDuration) ? rawDuration : DURATION
+      const duration = isTruthy<number>(rawDuration)
+        ? rawDuration
+        : getDuration()
       const id = genId(rawId)
 
       beforeUpdate(id)
@@ -87,25 +88,23 @@ const MessageContainer = forwardRef<MessageRef>((props, ref) => {
   }))
 
   return (
-    <div className="message-container">
-      <FlipMove
-        enterAnimation={enterAnimation}
-        leaveAnimation={leaveAnimation}
-        duration={200}
-        staggerDelayBy={20}
-        typeName={null}
-      >
-        {message.map((item) => {
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          const { id, content, timerId, duration, ...otherProps } = item
-          return (
-            <Message key={id} {...otherProps}>
-              {content}
-            </Message>
-          )
-        })}
-      </FlipMove>
-    </div>
+    <FlipMove
+      enterAnimation={enterAnimation}
+      leaveAnimation={leaveAnimation}
+      duration={200}
+      staggerDelayBy={20}
+      typeName={null}
+    >
+      {message.map((item) => {
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const { id, content, timerId, duration, ...otherProps } = item
+        return (
+          <Message key={id} prefixCls={getPrefixCls()} {...otherProps}>
+            {content}
+          </Message>
+        )
+      })}
+    </FlipMove>
   )
 })
 

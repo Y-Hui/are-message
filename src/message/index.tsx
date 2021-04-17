@@ -3,16 +3,16 @@ import React, {
   useRef,
   useImperativeHandle,
   forwardRef,
+  useCallback,
 } from 'react'
-import ReactDOM from 'react-dom'
 import classNames from 'classnames'
 import { MessageProps, Base } from './prop-types'
-import './index.less'
+import { isTruthy } from '../types/types'
 
 type Ref = HTMLDivElement | null
 
 const Message = forwardRef<Ref, MessageProps & Base>((props, ref) => {
-  const { className, children, holder, onClose, ...otherProps } = props
+  const { prefixCls, className, children, onClose, ...otherProps } = props
   const node = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => {
@@ -23,25 +23,28 @@ const Message = forwardRef<Ref, MessageProps & Base>((props, ref) => {
 
   useImperativeHandle<Ref, Ref>(ref, () => node.current)
 
+  const createClassName = useCallback(
+    (value: string) => {
+      if (isTruthy<string>(prefixCls)) {
+        return `${prefixCls}-${value}`
+      }
+      return value
+    },
+    [prefixCls],
+  )
+
   const messageNode = (
-    <div className="message-wrap" ref={node}>
-      <div className={classNames('message', className)} {...otherProps}>
+    <div className={createClassName('item-wrap')} ref={node}>
+      <div
+        className={classNames(createClassName('item'), className)}
+        {...otherProps}
+      >
         {children}
       </div>
     </div>
   )
 
-  if (holder) {
-    return ReactDOM.createPortal(messageNode, holder())
-  }
-
-  return (
-    <div className="message-wrap" ref={node}>
-      <div className={classNames('message', className)} {...otherProps}>
-        {children}
-      </div>
-    </div>
-  )
+  return messageNode
 })
 
 Message.displayName = 'Message'

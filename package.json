@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "are-message",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -65,7 +65,6 @@
   },
   "dependencies": {
     "classnames": "^2.3.1",
-    "react-flip-move": "^3.0.4",
-    "react-transition-group": "^4.4.1"
+    "react-flip-move": "^3.0.4"
   }
 }
