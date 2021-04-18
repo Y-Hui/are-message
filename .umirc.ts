@@ -16,6 +16,7 @@ export default defineConfig({
   publicPath: ENV === 'production' ? prefix : '/',
   outputPath: 'docs-dist',
   dynamicImport: ENV === 'production' ? {} : false,
+  exportStatic: ENV === 'production' ? {} : false,
   styles: [
     `
       body {
