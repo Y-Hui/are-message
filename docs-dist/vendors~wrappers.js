@@ -1,27 +1,6 @@
 ;(window['webpackJsonp'] = window['webpackJsonp'] || []).push([
-  [10],
+  [11],
   {
-    '0Owb': function (e, t, a) {
-      'use strict'
-      function n() {
-        return (
-          (n =
-            Object.assign ||
-            function (e) {
-              for (var t = 1; t < arguments.length; t++) {
-                var a = arguments[t]
-                for (var n in a)
-                  Object.prototype.hasOwnProperty.call(a, n) && (e[n] = a[n])
-              }
-              return e
-            }),
-          n.apply(this, arguments)
-        )
-      }
-      a.d(t, 'a', function () {
-        return n
-      })
-    },
     '7ZSp': function (e, t, a) {},
     JBu9: function (e, t, a) {
       'use strict'
@@ -39,11 +18,11 @@
               n = a.base,
               u = a.locale,
               i = a.config.locales,
-              s = i.find((e) => {
+              m = i.find((e) => {
                 var t = e.name
                 return t !== u
               })
-            function m(e) {
+            function s(e) {
               var a = n.replace('/'.concat(u), ''),
                 r = t.pathname.replace(n, a) || '/'
               if (e !== i[0].name) {
@@ -53,7 +32,7 @@
               }
               return r
             }
-            return s
+            return m
               ? l.a.createElement(
                   'div',
                   {
@@ -65,7 +44,7 @@
                         'select',
                         {
                           value: u,
-                          onChange: (e) => c['a'].push(m(e.target.value)),
+                          onChange: (e) => c['a'].push(s(e.target.value)),
                         },
                         i.map((e) =>
                           l.a.createElement(
@@ -75,12 +54,12 @@
                           ),
                         ),
                       )
-                    : l.a.createElement(o['Link'], { to: m(s.name) }, s.label),
+                    : l.a.createElement(o['Link'], { to: s(m.name) }, m.label),
                 )
               : null
           }),
         i = u,
-        s =
+        m =
           (a('jp8u'),
           (e) => {
             var t = e.onMobileMenuClick,
@@ -88,14 +67,14 @@
               n = e.location,
               c = Object(r['useContext'])(o['context']),
               u = c.base,
-              s = c.config,
-              m = s.mode,
-              d = s.title,
-              f = s.logo,
+              m = c.config,
+              s = m.mode,
+              d = m.title,
+              f = m.logo,
               p = c.nav
             return l.a.createElement(
               'div',
-              { className: '__dumi-default-navbar', 'data-mode': m },
+              { className: '__dumi-default-navbar', 'data-mode': s },
               l.a.createElement('button', {
                 className: '__dumi-default-navbar-toggle',
                 onClick: t,
@@ -154,7 +133,7 @@
               ),
             )
           }),
-        m = s,
+        s = m,
         d = a('0Owb'),
         f = a('PpiC'),
         p =
@@ -192,8 +171,8 @@
               n = Object(r['useContext'])(o['context']),
               c = n.config,
               u = c.logo,
-              s = c.title,
-              m = c.description,
+              m = c.title,
+              s = c.description,
               d = c.mode,
               f = c.repository.url,
               p = n.menu,
@@ -223,8 +202,8 @@
                     className: '__dumi-default-menu-logo',
                     style: { backgroundImage: u && "url('".concat(u, "')") },
                   }),
-                  l.a.createElement('h1', null, s),
-                  l.a.createElement('p', null, m),
+                  l.a.createElement('h1', null, m),
+                  l.a.createElement('p', null, s),
                   /github\.com/.test(f) &&
                     'doc' === d &&
                     l.a.createElement(
@@ -357,14 +336,14 @@
               c = t[1],
               u = Object(r['useState'])([]),
               i = Object(n['a'])(u, 2),
-              s = i[0],
-              m = i[1],
+              m = i[0],
+              s = i[1],
               f = Object(r['useRef'])(),
               p = Object(o['useSearch'])(a)
             return (
               Object(r['useEffect'])(() => {
                 Array.isArray(p)
-                  ? m(p)
+                  ? s(p)
                   : 'function' === typeof p &&
                     p('.'.concat(f.current.className))
               }, [p]),
@@ -387,7 +366,7 @@
                 l.a.createElement(
                   'ul',
                   null,
-                  s.map((e) => {
+                  m.map((e) => {
                     var t
                     return l.a.createElement(
                       'li',
@@ -459,44 +438,44 @@
               ),
             ),
           ),
-        O = (e) => {
+        _ = (e) => {
           var t,
             a,
             c = e.children,
             u = e.location,
             i = Object(r['useContext'])(o['context']),
-            s = i.config,
-            d = s.mode,
-            f = s.repository,
+            m = i.config,
+            d = m.mode,
+            f = m.repository,
             p = i.meta,
             v = i.locale,
-            O = f.url,
-            _ = f.branch,
+            _ = f.url,
+            O = f.branch,
             j = f.platform,
             k = Object(r['useState'])(!0),
             w = Object(n['a'])(k, 2),
             S = w[0],
-            A = w[1],
-            N = 'site' === d,
-            P = N && p.hero,
-            L = N && p.features,
-            x = !1 !== p.sidemenu && !P && !L && !p.gapless,
+            N = w[1],
+            L = 'site' === d,
+            P = L && p.hero,
+            x = L && p.features,
+            A = !1 !== p.sidemenu && !P && !x && !p.gapless,
             C =
               !P &&
-              !L &&
+              !x &&
               Boolean(
                 null === (t = p.slugs) || void 0 === t ? void 0 : t.length,
               ) &&
               ('content' === p.toc || void 0 === p.toc) &&
               !p.gapless,
-            I = /^zh|cn$/i.test(v),
-            M = new Date(p.updatedTime),
+            M = /^zh|cn$/i.test(v),
+            I = new Date(p.updatedTime),
             $ = ''
-              .concat(M.toLocaleDateString([], { hour12: !1 }), ' ')
-              .concat(M.toLocaleTimeString([], { hour12: !1 })),
+              .concat(I.toLocaleDateString([], { hour12: !1 }), ' ')
+              .concat(I.toLocaleTimeString([], { hour12: !1 })),
             B =
               { github: 'GitHub', gitlab: 'GitLab' }[
-                (null === (a = (O || '').match(/(github|gitlab)/)) ||
+                (null === (a = (_ || '').match(/(github|gitlab)/)) ||
                 void 0 === a
                   ? void 0
                   : a[1]) || 'nothing'
@@ -506,19 +485,19 @@
             {
               className: '__dumi-default-layout',
               'data-route': u.pathname,
-              'data-show-sidemenu': String(x),
+              'data-show-sidemenu': String(A),
               'data-show-slugs': String(C),
-              'data-site-mode': N,
+              'data-site-mode': L,
               'data-gapless': String(!!p.gapless),
               onClick: () => {
-                S || A(!0)
+                S || N(!0)
               },
             },
-            l.a.createElement(m, {
+            l.a.createElement(s, {
               location: u,
               navPrefix: l.a.createElement(b, null),
               onMobileMenuClick: (e) => {
-                A((e) => !e), e.stopPropagation()
+                N((e) => !e), e.stopPropagation()
               },
             }),
             l.a.createElement(y, { mobileMenuCollapsed: S, location: u }),
@@ -528,13 +507,13 @@
                 className: '__dumi-default-layout-toc',
               }),
             P && g(p.hero),
-            L && E(p.features),
+            x && E(p.features),
             l.a.createElement(
               'div',
               { className: '__dumi-default-layout-content' },
               c,
               !P &&
-                !L &&
+                !x &&
                 p.filePath &&
                 !p.gapless &&
                 l.a.createElement(
@@ -545,25 +524,25 @@
                       o['Link'],
                       {
                         to: ''
-                          .concat(O, '/edit/')
-                          .concat(_, '/')
+                          .concat(_, '/edit/')
+                          .concat(O, '/')
                           .concat(p.filePath),
                       },
-                      I
+                      M
                         ? '\u5728 '.concat(B, ' \u4e0a\u7f16\u8f91\u6b64\u9875')
                         : 'Edit this doc on '.concat(B),
                     ),
                   l.a.createElement(
                     'span',
                     {
-                      'data-updated-text': I
+                      'data-updated-text': M
                         ? '\u6700\u540e\u66f4\u65b0\u65f6\u95f4\uff1a'
                         : 'Last update: ',
                     },
                     $,
                   ),
                 ),
-              (P || L) &&
+              (P || x) &&
                 p.footer &&
                 l.a.createElement('div', {
                   className: '__dumi-default-layout-footer',
@@ -572,7 +551,7 @@
             ),
           )
         }
-      t['default'] = O
+      t['default'] = _
     },
     KAdo: function (e, t, a) {},
     KcUY: function (e, t, a) {
@@ -597,7 +576,7 @@
       }
       Object.defineProperty(t, '__esModule', { value: !0 }),
         (t['default'] = void 0)
-      var r = s(a('q1tI')),
+      var r = m(a('q1tI')),
         l = u(a('q3YX')),
         o = u(a('bYHP')),
         c = u(a('nLCz'))
@@ -614,7 +593,7 @@
           e
         )
       }
-      function s(e) {
+      function m(e) {
         if (e && e.__esModule) return e
         if (null === e || ('object' !== n(e) && 'function' !== typeof e))
           return { default: e }
@@ -631,7 +610,7 @@
           }
         return (a['default'] = e), t && t.set(e, a), a
       }
-      function m(e, t) {
+      function s(e, t) {
         return v(e) || h(e, t) || f(e, t) || d()
       }
       function d() {
@@ -756,7 +735,7 @@
               )
             },
             n = (0, r.useState)(a(e, t)),
-            l = m(n, 2),
+            l = s(n, 2),
             o = l[0],
             c = l[1]
           return (
@@ -769,7 +748,7 @@
             o
           )
         },
-        O = function (e, t) {
+        _ = function (e, t) {
           var a = function () {
               for (
                 var t, a = arguments.length, n = new Array(a), r = 0;
@@ -787,7 +766,7 @@
               )
             },
             n = (0, r.useState)(a(e, t)),
-            l = m(n, 2),
+            l = s(n, 2),
             o = l[0],
             c = l[1]
           return (
@@ -800,7 +779,7 @@
             o
           )
         },
-        _ = function (e, t, a) {
+        O = function (e, t, a) {
           var n = function () {
               for (
                 var e, t = arguments.length, a = new Array(t), n = 0;
@@ -835,7 +814,7 @@
               )
             },
             l = (0, r.useState)(n(e, t, a)),
-            o = m(l, 2),
+            o = s(l, 2),
             c = o[0],
             u = o[1]
           return (
@@ -861,7 +840,7 @@
                 : ''.concat(a.path, '/').concat(e).replace(/\/\//, '/')
             },
             l = (0, r.useState)(n(e, t, a)),
-            o = m(l, 2),
+            o = s(l, 2),
             c = o[0],
             u = o[1]
           return (
@@ -889,10 +868,10 @@
             n = e.children,
             u = t.pathname.replace(a.path.replace(/^\/$/, '//'), ''),
             i = k(e.routes) || [],
-            s = E(i, t.pathname),
-            m = O(l['default'].locales, u),
-            d = _(l['default'], m, t.pathname),
-            f = j(m, l['default'].locales, a)
+            m = E(i, t.pathname),
+            s = _(l['default'].locales, u),
+            d = O(l['default'], s, t.pathname),
+            f = j(s, l['default'].locales, a)
           return (
             (0, r.useEffect)(function () {
               t.hash &&
@@ -903,15 +882,15 @@
               {
                 value: {
                   config: l['default'],
-                  meta: s,
-                  locale: m,
-                  nav: l['default'].navs[m] || [],
+                  meta: m,
+                  locale: s,
+                  nav: l['default'].navs[s] || [],
                   menu: d,
                   base: f,
                   routes: i,
                 },
               },
-              s.__pathname === t.pathname && n,
+              m.__pathname === t.pathname && n,
             )
           )
         },
@@ -953,67 +932,5 @@
     hQjr: function (e, t, a) {},
     jp8u: function (e, t, a) {},
     mAF5: function (e, t, a) {},
-    tJVT: function (e, t, a) {
-      'use strict'
-      function n(e) {
-        if (Array.isArray(e)) return e
-      }
-      function r(e, t) {
-        if ('undefined' !== typeof Symbol && Symbol.iterator in Object(e)) {
-          var a = [],
-            n = !0,
-            r = !1,
-            l = void 0
-          try {
-            for (
-              var o, c = e[Symbol.iterator]();
-              !(n = (o = c.next()).done);
-              n = !0
-            )
-              if ((a.push(o.value), t && a.length === t)) break
-          } catch (u) {
-            ;(r = !0), (l = u)
-          } finally {
-            try {
-              n || null == c['return'] || c['return']()
-            } finally {
-              if (r) throw l
-            }
-          }
-          return a
-        }
-      }
-      function l(e, t) {
-        ;(null == t || t > e.length) && (t = e.length)
-        for (var a = 0, n = new Array(t); a < t; a++) n[a] = e[a]
-        return n
-      }
-      function o(e, t) {
-        if (e) {
-          if ('string' === typeof e) return l(e, t)
-          var a = Object.prototype.toString.call(e).slice(8, -1)
-          return (
-            'Object' === a && e.constructor && (a = e.constructor.name),
-            'Map' === a || 'Set' === a
-              ? Array.from(e)
-              : 'Arguments' === a ||
-                /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(a)
-              ? l(e, t)
-              : void 0
-          )
-        }
-      }
-      function c() {
-        throw new TypeError(
-          'Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.',
-        )
-      }
-      function u(e, t) {
-        return n(e) || r(e, t) || o(e, t) || c()
-      }
-      a.d(t, 'a', function () {
-        return u
-      })
-    },
   },
 ])

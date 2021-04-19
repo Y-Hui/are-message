@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "are-message",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Y-Hui",
   "description": "This is a React global notification message component. It is a standalone implementation of the are-visual message component.",
   "keywords": [

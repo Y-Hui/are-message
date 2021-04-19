@@ -1,5 +1,5 @@
 ;(window['webpackJsonp'] = window['webpackJsonp'] || []).push([
-  [4],
+  [5],
   {
     '9kvl': function (e, n, t) {
       'use strict'
@@ -535,7 +535,7 @@
                         case 0:
                           return (
                             (e.next = 2),
-                            Promise.all([t.e(9), t.e(3)]).then(
+                            Promise.all([t.e(10), t.e(4)]).then(
                               t.bind(null, '+ufn'),
                             )
                           )
@@ -564,7 +564,7 @@
             },
             dependencies: {
               react: { version: '>=16.9.0' },
-              'are-message': { version: '0.1.0' },
+              'are-message': { version: '0.1.1' },
               'react-dom': { version: '>=16.9.0' },
             },
             identifier: 'docs-basic',
@@ -581,7 +581,7 @@
                         case 0:
                           return (
                             (e.next = 2),
-                            Promise.all([t.e(9), t.e(3)]).then(
+                            Promise.all([t.e(10), t.e(4)]).then(
                               t.bind(null, 'YoEN'),
                             )
                           )
@@ -610,7 +610,7 @@
             },
             dependencies: {
               react: { version: '>=16.9.0' },
-              'are-message': { version: '0.1.0' },
+              'are-message': { version: '0.1.1' },
               'react-dom': { version: '>=16.9.0' },
             },
             identifier: 'docs-duration',
@@ -627,7 +627,7 @@
                         case 0:
                           return (
                             (e.next = 2),
-                            Promise.all([t.e(9), t.e(3)]).then(
+                            Promise.all([t.e(10), t.e(4)]).then(
                               t.bind(null, 'WsYC'),
                             )
                           )
@@ -656,7 +656,7 @@
             },
             dependencies: {
               react: { version: '>=16.9.0' },
-              'are-message': { version: '0.1.0' },
+              'are-message': { version: '0.1.1' },
               'react-dom': { version: '>=16.9.0' },
             },
             identifier: 'docs-update',
@@ -673,7 +673,7 @@
                         case 0:
                           return (
                             (e.next = 2),
-                            Promise.all([t.e(9), t.e(3)]).then(
+                            Promise.all([t.e(10), t.e(4)]).then(
                               t.bind(null, '52fG'),
                             )
                           )
@@ -702,7 +702,7 @@
             },
             dependencies: {
               react: { version: '>=16.9.0' },
-              'are-message': { version: '0.1.0' },
+              'are-message': { version: '0.1.1' },
               'react-dom': { version: '>=16.9.0' },
             },
             identifier: 'docs-hook',
@@ -719,7 +719,7 @@
                         case 0:
                           return (
                             (e.next = 2),
-                            Promise.all([t.e(9), t.e(3)]).then(
+                            Promise.all([t.e(10), t.e(4)]).then(
                               t.bind(null, 'btNl'),
                             )
                           )
@@ -748,7 +748,7 @@
             },
             dependencies: {
               react: { version: '>=16.9.0' },
-              'are-message': { version: '0.1.0' },
+              'are-message': { version: '0.1.1' },
               'react-dom': { version: '>=16.9.0' },
             },
             identifier: 'docs-promise',
@@ -765,7 +765,7 @@
                         case 0:
                           return (
                             (e.next = 2),
-                            Promise.all([t.e(9), t.e(3)]).then(
+                            Promise.all([t.e(10), t.e(4)]).then(
                               t.bind(null, 'w60M'),
                             )
                           )
@@ -794,7 +794,7 @@
             },
             dependencies: {
               react: { version: '>=16.9.0' },
-              'are-message': { version: '0.1.0' },
+              'are-message': { version: '0.1.1' },
               'react-dom': { version: '>=16.9.0' },
             },
             identifier: 'docs-clear',
