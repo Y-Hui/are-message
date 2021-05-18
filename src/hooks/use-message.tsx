@@ -21,11 +21,7 @@ function useMessage(): MessageHook {
     )
   }, [])
 
-  const message = useMemo(() => {
-    return createApi(() => instance.current)
-  }, [])
-
-  return [message, container]
+  return [createApi(() => instance.current), container]
 }
 
 export { useMessage }

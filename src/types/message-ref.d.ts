@@ -5,7 +5,8 @@ export interface MessageCloseFunc extends PromiseLike<unknown> {
 }
 
 export interface MessageRef {
-  add: (params: MessageOptions) => () => void
+  add: (params: MessageOptions) => void
   remove: (id: MessageId) => void
   clear: () => void
+  createId: (value?: MessageId) => MessageId
 }

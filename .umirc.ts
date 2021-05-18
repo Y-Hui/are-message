@@ -13,9 +13,8 @@ export default defineConfig({
     ENV === 'production'
       ? `${prefix}/images/are-visual.svg`
       : '/images/are-visual.svg',
-  publicPath: ENV === 'production' ? prefix : '/',
+  publicPath: ENV === 'production' ? '/are-message/docs-dist/' : '/',
   outputPath: 'docs-dist',
-  dynamicImport: ENV === 'production' ? {} : false,
   exportStatic: ENV === 'production' ? {} : false,
   styles: [
     `

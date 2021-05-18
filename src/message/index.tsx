@@ -21,7 +21,7 @@ const Message = forwardRef<Ref, MessageProps & Base>((props, ref) => {
     }
   }, [onClose])
 
-  useImperativeHandle<Ref, Ref>(ref, () => node.current)
+  useImperativeHandle<Ref, Ref>(ref, () => node.current, [])
 
   const createClassName = useCallback(
     (value: string) => {

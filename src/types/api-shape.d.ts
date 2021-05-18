@@ -1,9 +1,12 @@
-import { MessageCloseFunc } from './message-ref'
 import { MessageId, MessageOptions } from './message-shape'
 import { Omit } from './types'
 
 type Content = MessageOptions['content'] | string
 type ContentOrOptions = Content | MessageOptions
+
+export interface CloseCall extends PromiseLike<any> {
+  (): void
+}
 
 export interface MessageApiShape {
   /**
@@ -13,7 +16,7 @@ export interface MessageApiShape {
     params: ContentOrOptions,
     duration?: MessageOptions['duration'],
     options?: Omit<MessageOptions, 'content' | 'duration'>,
-  ) => MessageCloseFunc
+  ) => CloseCall
   /**
    * 销毁一个 message
    */

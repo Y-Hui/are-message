@@ -62,8 +62,8 @@ const MessageContainer = forwardRef<MessageRef>((props, ref) => {
       const id = genId(rawId)
 
       beforeUpdate(id)
-      const result = () => removeMessage(id)
-      const timerId = duration === 0 ? undefined : timeout(result, duration)
+      const timerId =
+        duration === 0 ? undefined : timeout(() => removeMessage(id), duration)
       dispatch(
         addAction({
           ...params,
@@ -76,16 +76,20 @@ const MessageContainer = forwardRef<MessageRef>((props, ref) => {
           },
         }),
       )
-      return result
     },
     [genId, removeMessage, beforeUpdate],
   )
 
-  useImperativeHandle(ref, () => ({
-    add: addMessage,
-    remove: removeMessage,
-    clear: clearMessage,
-  }))
+  useImperativeHandle(
+    ref,
+    () => ({
+      add: addMessage,
+      remove: removeMessage,
+      clear: clearMessage,
+      createId: genId,
+    }),
+    [addMessage, removeMessage, clearMessage, genId],
+  )
 
   return (
     <FlipMove
